@@ -20,4 +20,10 @@ pip install -r requirments.txt
 ```
 source blockchain-env/bin/activate
 python -m pytest backend/tests
+
+# to debug tests
+# insert as a breakpoint
+import pudb; pudb.set_trace()
+# and run
+python -m pytest -s backend/tests
 ```
