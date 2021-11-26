@@ -7,18 +7,8 @@
         "type": "python",
         "request": "launch",
         "program": "${file}",
-        "cwd": "${fileDirname}"
-      }
-    },
-    "Debug Tests": {
-      "adapter": "debugpy",
-      "configuration": {
-        "name": "Debug tests",
-        "type": "python",
-        "request": "launch",
-	"stopOnEntry": true,
-        "program": "python -m pytest ./backend/tests",
-        "cwd": "${workspaceRoot}"
+        "cwd": "${fileDirname}",
+         "env": { "PYTHONPATH": "${workspaceRoot}"}
       }
     }
   }
