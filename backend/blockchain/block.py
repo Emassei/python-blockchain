@@ -51,6 +51,7 @@ class Block:
         while hex_to_binary(hash)[0:difficulty] != '0' * difficulty:
             nonce += 1
             timestamp = time.time_ns()
+            difficulty = Block.adjust_difficulty(last_block, timestamp)
             hash = crypto_hash(timestamp, last_hash, data, difficulty, nonce)
 
 
@@ -71,8 +72,7 @@ class Block:
         Decrease the difficulty for slowly mined blocks.
         """
 
-
-        if (new_timestamp - last_block.timestamp  < MINE_RATE):
+        if (new_timestamp - last_block.timestamp)  < MINE_RATE:
             return last_block.difficulty + 1
 
 
