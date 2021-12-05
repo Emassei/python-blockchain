@@ -27,3 +27,9 @@ import pudb; pudb.set_trace()
 # and run
 python -m pytest -s backend/tests
 ```
+
+### Run the app
+
+```
+python -m backend.app
+```

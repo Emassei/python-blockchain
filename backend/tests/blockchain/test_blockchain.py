@@ -44,3 +44,10 @@ def test_replace_chain_not_longer(blockchain_five_blocks):
 
     with pytest.raises(Exception, match='The incoming chain must be longer'):
         blockchain_five_blocks.replace_chain(blockchain.chain)
+
+def test_replace_chain_bad_chain(blockchain_five_blocks):
+    blockchain = Blockchain()
+    blockchain_five_blocks.chain[1].hash = 'evil_hash'
+
+    with pytest.raises(Exception, match='The incoming chain is invalid'):
+        blockchain.replace_chain(blockchain_five_blocks.chain)
